@@ -43,6 +43,13 @@ namespace AddressBookSystem
                         addressBook.Display();
                         break;
                     case 3:
+                        Console.WriteLine("Enter the Contact Name to be Edited: ");
+                        string name = Console.ReadLine();
+                        AddressBook ab = new AddressBook();
+                        ab.EditContact(name);
+                        ab.Display();
+                        break;
+                    case 4:
                         flag = false;
                         break;
                 }
