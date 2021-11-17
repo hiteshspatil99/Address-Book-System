@@ -57,11 +57,27 @@ namespace AddressBookSystem
                         abb.Display();
                         break;
                     case 5:
+                        Console.WriteLine("Enter the Contact Information to be Add in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
+                        Console.WriteLine("Enter the Contact to be Add: ");
+                        Contact con = new Contact();
+                        AddressBook abo = new AddressBook();
+                        abo.AddContact(con);
+                        con.FirstName = Console.ReadLine();
+                        con.LastName = Console.ReadLine();
+                        con.Address = Console.ReadLine();
+                        con.City = Console.ReadLine();
+                        con.State = Console.ReadLine();
+                        con.Zip = Console.ReadLine();
+                        con.PhoneNumber = Console.ReadLine();
+                        con.Email = Console.ReadLine();
+                        abo.Display();
+                        break;
+                    case 6:
                         flag = false;
                         break;
                 }
             }
-            }
+
         }
     }
 }
