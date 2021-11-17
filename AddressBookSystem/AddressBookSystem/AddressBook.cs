@@ -7,6 +7,7 @@ namespace AddressBookSystem
     class AddressBook
     {
         List<Contact> addressList = new List<Contact>();
+        Dictionary<string, List<Contact>> dict = new Dictionary<string, List<Contact>>();
         public void AddContact(Contact contact) // This Method Will Add the Details of Customer
         {
             addressList.Add(contact);
@@ -46,6 +47,35 @@ namespace AddressBookSystem
                     addressList.Remove(contact);
                 }
             }
+        }
+        public void AddUniqueContact(string nam)
+        {
+            foreach (var contact in addressList)
+            {
+                if (addressList.Contains(contact))
+                {
+                    string uniqueName = Console.ReadLine();
+                    dict.Add(uniqueName, addressList);
+                }
+            }
+        }
+        public void DisplayUniqueContacts()
+        {
+            // Maintain Dictionary of Addressbook Name to Addressbook
+            Console.WriteLine("enter name of dictionary to display that contact details");
+            string name = Console.ReadLine().ToLower();
+            foreach (var contacts in dict)
+            {
+                if (contacts.Key == name)
+                {
+                    foreach (var data in contacts.Value)
+                    {
+                        Console.WriteLine("The Contact of " + data.FirstName + " Details are\n:" + data.FirstName + " " + data.LastName + " " + data.Address + " " + data.City + " " + data.State + " " + data.Zip + " " + data.PhoneNumber + " " + data.Email);
+                    }
+                }
+            }
+            Console.WriteLine("Oops UniqueContacts does not exist!! Please create a UniquecontactList");
+            return;
         }
     }
 }

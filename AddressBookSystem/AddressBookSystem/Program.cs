@@ -10,7 +10,7 @@ namespace AddressBookSystem
             bool flag = true;
             while (flag)
             {
-                Console.WriteLine("Enter your Choice Number to Execute the Address Program Press- 1-Contacts, 2-Add Contact, 3-Edit Contact, 4-Delete Contact, 5-Exit");
+                Console.WriteLine("Enter your Choice Number to Execute the Address Program Press- 1-Contacts, 2-Add Contact, 3-Edit Contact, 4-Delete Contact, 5-Add Multiple Contact, 6-Refactor Method");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -73,6 +73,13 @@ namespace AddressBookSystem
                         abo.Display();
                         break;
                     case 6:
+                        Console.WriteLine("Enter the Unique Contact to be added: ");
+                        string nam = Console.ReadLine();
+                        AddressBook aboo = new AddressBook();
+                        aboo.AddUniqueContact(nam);
+                        aboo.DisplayUniqueContacts();
+                        break;
+                    case 7:
                         flag = false;
                         break;
                 }
